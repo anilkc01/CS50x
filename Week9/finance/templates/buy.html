@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Stock
+{% endblock %}
+
+{% block main %}
+    <div class="container mt-5">
+        <h2 class="text-center">Buy Stock</h2>
+
+        <!-- First Form: Enter company symbol and number of shares -->
+        {% if not company_symbol %}
+            <form method="POST" action="/buy" class="d-flex flex-row align-items-center">
+                <div style="margin-left: 20px;" class="form-group">
+                    <label for="company_symbol">Company Symbol</label>
+                    <input type="text" name="symbol" class="form-control" placeholder="Enter company symbol" required>
+                </div>
+                <div style="margin-left: 20px;" class="form-group aligh-items-left">
+                    <label for="shares">Number of Shares</label>
+                    <input type="number" name="shares" class="form-control" placeholder="Enter number of shares" required>
+                </div>
+                <button style="margin-left: 20px;" type="submit" class="btn btn-primary mt-2">Next</button>
+            </form>
+        {% endif %}
+
+       
+    </div>
+{% endblock %}

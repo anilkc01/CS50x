@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelectorAll('.button button').forEach(button => {
+                    button.addEventListener('click', function() {
+                        var correct = this.getAttribute('data');
+                        var messageElement = document.getElementById('resultMessage');
+
+                        // Reset previous styles
+                        document.querySelectorAll('.button button').forEach(btn => {
+                            btn.classList.remove('correct', 'incorrect');
+                        });
+
+                        if (correct === "true") {
+                            this.classList.add('correct');
+                            messageElement.textContent = "Correct!";
+                        } else {
+                            this.classList.add('incorrect');
+                            messageElement.textContent = "Incorrect!";
+                        }
+                    });
+                });
+            });
+
+            function check()
+            {
+                const correctAnswer = "Yes"; // Set the correct answer here
+                const inputElement = document.getElementById('ans');
+                const messageElement = document.getElementById('resultMessage2');
+
+                // Get the user's input and trim any whitespace
+                const userInput = inputElement.value.trim();
+
+                // Check the user's input
+                if (userInput.toLowerCase() === correctAnswer.toLowerCase()) {
+                    inputElement.style.borderColor = 'green';
+                    messageElement.textContent = "Correct!";
+
+                } else {
+                    inputElement.style.borderColor = 'red';
+                    messageElement.textContent = "Incorrect!";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>
+                    Where did Buddha Born ?
+                </h3>
+                <p class="message" id="resultMessage"></p>
+                <div class = "button">
+                    <button id = "1" data = "false" >India</button>
+                    <button id = "2" data = "false" >China</button>
+                    <button id = "3" data = "true" >Nepal</button>
+                    <button id = "4" data = "false" >Japan</button>
+                </div>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>
+                    Should Harvard accept my admission ?
+                </h3>
+                <form onsubmit="check(); return false;">
+                    <input autocomplete="off" autofocus id="ans"* placeholder="Ans" type="text">
+                    <input type="submit">
+                </form>
+                <p class="message" id="resultMessage2"></p>
+            </div>
+        </div>
+    </body>
+</html>

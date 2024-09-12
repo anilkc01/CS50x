@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Get Quote
+{% endblock %}
+
+{% block main %}
+    <div class="container mt-5">
+        <form method="POST" action="/quote" class="d-flex justify-content-center">
+            <input type="text" name="symbol" autofocus class="form-control mx-auto w-auto" placeholder="Enter company symbol" required>
+            <button type="submit" class="tn btn-primary">Get Quote</button>
+        </form>
+
+        {% if symbol and price %}
+            <div class="mt-4">
+                <h3>Company Symbol: {{ symbol }}</h3>
+                <h4>Stock Price: {{ usd(price) }}</h4>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

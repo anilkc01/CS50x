@@ -1,0 +1,2 @@
+I would categorize their aura as "Rythemic and Energetic".
+It doesnot consider the number of times each song was played. It could be better if we consider how much time was each song played to calculate weighted average.
